@@ -17,7 +17,7 @@ let options = {
     },
     servers: [
       {
-        url: "https://wafelbak-api-p4tlzt4yxq-ew.a.run.app",
+        url: "https://notes-api-p4tlzt4yxq-ew.a.run.app",
         description: "Production server"
       },
       {
