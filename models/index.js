@@ -17,7 +17,7 @@ var sequelize = new Sequelize(process.env.DATABASE2_NAME, process.env.DATABASE2_
       key: cKey,
       cert: cCert,
       ca: cCA,
-    }/
+    }*/
   }
 });
 
