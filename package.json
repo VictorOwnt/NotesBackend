@@ -1,0 +1,41 @@
+{
+  "name": "Notes-Backend",
+  "version": "1.0.0",
+  "description": "NotesBackend is an API created for the Notes App.",
+  "main": "index.js",
+  "scripts": {
+    "start-local": "nodemon ./bin/www",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorOwnt/NotesBackend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictorOwnt/NotesBackend/issues"
+  },
+  "homepage": "https://github.com/VictorOwnt/NotesBackend#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "express-sequelize": "0.0.4",
+    "http-errors": "^1.7.3",
+    "morgan": "^1.9.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.3",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.2",
+    "zxcvbn": "^4.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
