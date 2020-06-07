@@ -8,7 +8,11 @@ This project is part of the [Native Apps I](https://bamaflexweb.hogent.be/BMFUID
 
 ## Getting Started
 
-The server is currently hosted by [Google Cloud](https://cloud.google.com) 
+The server is currently hosted by [Google Cloud](https://cloud.google.com) [![Website](https://img.shields.io/website?label=backend&logo=google%20cloud&url=https%3A%2F%2Fnotes-api-p4tlzt4yxq-ew.a.run.app)](https://notes-api-p4tlzt4yxq-ew.a.run.app).
+
+> ### [`https://notes-api-p4tlzt4yxq-ew.a.run.app`](https://notes-api-p4tlzt4yxq-ew.a.run.app)
+
+[**Visit the documentation website**](https://wafelbak-api-p4tlzt4yxq-ew.a.run.app)
 
 ### Installation
 
