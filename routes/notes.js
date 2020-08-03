@@ -33,7 +33,7 @@ const models = require('../models');
  *                $ref: '#/components/schemas/Error'
  */
 router.get("/", function (req, res, next) {
-  models.Note.findAll({ attributes: ['id', 'content'] })
+  models.Note.findAll({ attributes: ['id', 'title', 'content'] })
     .catch(err => {
       return next(err);
     }).then(function (notes) {
@@ -77,7 +77,7 @@ router.get("/", function (req, res, next) {
  *                $ref: '#/components/schemas/Error'
  */
 router.param("noteId", function (req, res, next, id) {
-  models.Note.findOne({ attributes: ['id', 'content'], where: { id: id } })
+  models.Note.findOne({ attributes: ['id', 'title', 'content'], where: { id: id } })
     .catch(err => {
       return next(err);
     }).then(function (note) {
@@ -106,11 +106,15 @@ router.get("/id/:noteId", function (req, res, next) {
  *            schema:
  *              type: object
  *              required: 
+ *                - title
  *                - content
  *              properties:
+ *                title:
+ *                  type: string
+ *                  description: The title of the note.
  *                content:
  *                  type: string
- *                  description: The ncontetn of the note.
+ *                  description: The content of the note.
  *      responses: 
  *        "200":
  *          description: Note that has been created.
@@ -132,7 +136,7 @@ router.get("/id/:noteId", function (req, res, next) {
  *                $ref: '#/components/schemas/Error'
  */
 router.post("/create", function (req, res, next) {
-  if (!req.body.content)
+  if (!req.body.content || !req.body.title)
     return res.status(400).json("Please fill out all necessary fields.");
 
   //Creating Note
@@ -162,11 +166,15 @@ router.post("/create", function (req, res, next) {
  *              type: object
  *              required: 
  *                - id
+ *                - title
  *                - content
  *              properties:
  *                id: 
  *                  type: integer
  *                  description: The id of the note that needs to be updated.
+ *                title:
+ *                  type: string
+ *                  description: The title of the note that needs to be updated.
  *                content:
  *                  type: string
  *                  description: The content of the note that needs to be updated.
@@ -185,10 +193,10 @@ router.post("/create", function (req, res, next) {
  *                $ref: '#/components/schemas/Error'
  */
 router.patch("/updateNote", function (req, res, next) {
-  models.Note.update({ content: req.body.content }, { where: { id: req.body.id } }).catch(err => {
+  models.Note.update({ title: req.body.title, content: req.body.content }, { where: { id: req.body.id } }).catch(err => {
     return next(err);
   }).then(() => {
-    models.Note.findOne({ attributes: ['id', 'content'], where: { id: req.body.id } }).catch(err => {
+    models.Note.findOne({ attributes: ['id', 'title', 'content'], where: { id: req.body.id } }).catch(err => {
       return next(err);
     }).then(function (note) {
       return res.json(note)
