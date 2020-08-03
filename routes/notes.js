@@ -141,6 +141,7 @@ router.post("/create", function (req, res, next) {
 
   //Creating Note
   let note = models.Note.build({
+    title: req.body.title,
     content: req.body.content
   });
 
